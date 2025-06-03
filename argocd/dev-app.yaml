@@ -8,7 +8,7 @@ spec:
   source:
     repoURL: 'https://github.com/OletiSatishKumar/TaskManager_MERN_Infra_3.git'   # Replace with your repo URL
     targetRevision: master                                      # Branch or tag
-    path: infra/helm/taskmanager                              # Path to Helm chart
+    path: helm/taskmanager                              # Path to Helm chart
     helm:
       valueFiles:
         - values-dev.yaml                                     # Use dev values
