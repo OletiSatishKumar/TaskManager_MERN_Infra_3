@@ -1,0 +1,12 @@
+frontend:
+  image: satishosk/taskmanager-frontend:dev
+  replicas: 1
+  port: 3000
+
+backend:
+  image: satishosk/taskmanager-backend:dev
+  replicas: 1
+  port: 5000
+
+service:
+  type: NodePort
