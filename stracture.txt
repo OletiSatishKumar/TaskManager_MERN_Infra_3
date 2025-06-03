@@ -1,0 +1,29 @@
+# Dev cluster
+kubectl config use-context dev-cluster
+helm upgrade --install taskmanager-dev ./helm/taskmanager -f helm/taskmanager/values-dev.yaml
+
+# Prod cluster
+kubectl config use-context prod-cluster
+helm upgrade --install taskmanager-prod ./helm/taskmanager -f helm/taskmanager/values-prod.yaml
+
+
+infra/
+├── helm/
+│   └── taskmanager/              ✅ Helm chart for MERN app
+│       ├── templates/            ✅ All manifests templated here
+│       │   ├── frontend-deployment.yaml
+│       │   ├── backend-deployment.yaml
+│       │   ├── service.yaml
+│       │   ├── ingress.yaml      ✅ Optional, useful if using Ingress in Minikube
+│       │   └── _helpers.tpl
+│       ├── values-dev.yaml       ✅ Image tags updated by CI for dev
+│       ├── values-prod.yaml      ✅ Image tags updated by CI for prod
+│       └── Chart.yaml
+├── argocd/
+│   ├── dev-app.yaml              ✅ Argo CD App manifest for Dev
+│   └── prod-app.yaml             ✅ Argo CD App manifest for Prod
+├── dev-cluster/
+│   └── k8s-config.yaml           ✅ Optional - if you want to document or script `kubectl` access to Minikube
+├── prod-cluster/
+│   └── k8s-config.yaml
+├── README.md

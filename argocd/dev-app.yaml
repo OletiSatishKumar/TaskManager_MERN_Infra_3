@@ -1,0 +1,21 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: taskmanager-dev
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: 'https://github.com/OletiSatishKumar/TaskManager_MERN_Infra_3.git'   # Replace with your repo URL
+    targetRevision: master                                      # Branch or tag
+    path: infra/helm/taskmanager                              # Path to Helm chart
+    helm:
+      valueFiles:
+        - values-dev.yaml                                     # Use dev values
+  destination:
+    server: 'https://kubernetes.default.svc'                 # Cluster API
+    namespace: dev-namespace                                  # Target namespace for dev
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
