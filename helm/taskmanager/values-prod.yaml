@@ -1,3 +1,5 @@
+namespace: prod-namespace
+
 frontend:
   image: satishosk/taskmanager-frontend:prod
   replicas: 1

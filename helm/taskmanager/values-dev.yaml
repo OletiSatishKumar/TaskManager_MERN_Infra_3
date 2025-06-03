@@ -1,3 +1,5 @@
+namespace: dev-namespace
+
 frontend:
   image: satishosk/taskmanager-frontend:master-20250603-0854
   replicas: 1
