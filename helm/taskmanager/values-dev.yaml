@@ -14,7 +14,7 @@ service:
   type: NodePort
 
 secrets:
-  MONGO_URI: "mongodb+srv://SatishKumar:Satish%40%401303@cluster0.8h7ix.mongodb.net/tasks"
+  MONGO_URI: "mongodb://localhost:27017/task_dev"
   PORT: "8000"            
   JWT_SECRET: "Satishkumar@@1234"
   CLIENT_URL: "http://localhost:3000"
