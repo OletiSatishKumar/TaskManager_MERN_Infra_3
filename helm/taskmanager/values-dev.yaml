@@ -1,12 +1,12 @@
 namespace: dev-namespace
 
 frontend:
-  image: satishosk/taskmanager-frontend:master-20250603-0854
+  image: :master-20250604-1556
   replicas: 1
   port: 3000
 
 backend:
-  image: satishosk/taskmanager-backend:master-20250603-0854
+  image: :master-20250604-1556
   replicas: 1
   port: 5000
 
