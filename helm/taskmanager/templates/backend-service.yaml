@@ -11,3 +11,6 @@ spec:
     - protocol: TCP
       port: 80
       targetPort: {{ .Values.backend.port }}
+{{- if and (eq .Values.service.type "NodePort") .Values.service.backendNodePort }}
+      nodePort: {{ .Values.service.backendNodePort }}
+{{- end }}

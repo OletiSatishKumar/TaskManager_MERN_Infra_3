@@ -3,15 +3,17 @@ namespace: dev-namespace
 frontend:
   image: satishosk/taskmanager-frontend:master-20250604-1556
   replicas: 1
-  port: 3000  # Kubernetes container port for frontend
+  port: 3000  # container port frontend
 
 backend:
   image: satishosk/taskmanager-backend:master-20250604-1556
   replicas: 1
-  port: 8000  # Kubernetes container port for backend
+  port: 8000  # container port backend
 
 service:
   type: NodePort
+  backendNodePort: 31000
+  frontendNodePort: 31100
 
 secrets:
   MONGO_URI: "mongodb://localhost:27017/task_dev"

@@ -2,6 +2,8 @@
 kubectl config use-context dev-cluster
 helm upgrade --install taskmanager-dev ./helm/taskmanager -f helm/taskmanager/values-dev.yaml
 
+helm upgrade taskmanager-dev ./helm/taskmanager -f helm/taskmanager/values-dev.yaml --namespace dev-namespace
+
 # Prod cluster
 kubectl config use-context prod-cluster
 helm upgrade --install taskmanager-prod ./helm/taskmanager -f helm/taskmanager/values-prod.yaml
