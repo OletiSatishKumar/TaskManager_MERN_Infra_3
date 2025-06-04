@@ -18,6 +18,6 @@ spec:
           image: {{ .Values.backend.image }}
           ports:
             - containerPort: {{ .Values.backend.port }}
-          env:
-            - name: MONGO_URL
-              value: "mongodb://mongo-service:27017/taskmanager"
+          envFrom:
+            - secretRef:
+                name: backend-secret

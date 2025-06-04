@@ -13,9 +13,11 @@ infra/
 │       ├── templates/            ✅ All manifests templated here
 │       │   ├── frontend-deployment.yaml
 │       │   ├── backend-deployment.yaml
+│       │   ├── backend-secret.yaml
 │       │   ├── service.yaml
 │       │   ├── ingress.yaml      ✅ Optional, useful if using Ingress in Minikube
 │       │   └── _helpers.tpl
+│       │   └── namespace.yaml
 │       ├── values-dev.yaml       ✅ Image tags updated by CI for dev
 │       ├── values-prod.yaml      ✅ Image tags updated by CI for prod
 │       └── Chart.yaml

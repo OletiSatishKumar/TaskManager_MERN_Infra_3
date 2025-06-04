@@ -1,14 +1,21 @@
 namespace: dev-namespace
 
 frontend:
-  image: :master-20250604-1556
+  image: satishosk/taskmanager-frontend:master-20250604-1556
   replicas: 1
-  port: 3000
+  port: 3000  # Kubernetes container port for frontend
 
 backend:
-  image: :master-20250604-1556
+  image: satishosk/taskmanager-backend:master-20250604-1556
   replicas: 1
-  port: 5000
+  port: 8000  # Kubernetes container port for backend
 
 service:
   type: NodePort
+
+secrets:
+  MONGO_URI: "mongodb+srv://SatishKumar:Satish%40%401303@cluster0.8h7ix.mongodb.net/tasks"
+  PORT: "8000"            
+  JWT_SECRET: "Satishkumar@@1234"
+  CLIENT_URL: "http://localhost:3000"
+  NEXT_PUBLIC_API_URL: "http://localhost:8000/api/v1"
